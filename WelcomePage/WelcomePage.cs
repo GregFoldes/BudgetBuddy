@@ -33,5 +33,12 @@ namespace WelcomePage
             openLogin.Show();
             this.Hide();
         }
+
+        private void SignUp_Click(object sender, EventArgs e)
+        {
+            var openSignUp = new SignUp();
+            openSignUp.Show();
+            this.Hide();
+        }
     }
 }

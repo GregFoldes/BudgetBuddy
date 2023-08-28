@@ -37,8 +37,8 @@
             // LoginButt
             // 
             this.LoginButt.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.LoginButt.Location = new System.Drawing.Point(43, 348);
-            this.LoginButt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LoginButt.Location = new System.Drawing.Point(250, 348);
+            this.LoginButt.Margin = new System.Windows.Forms.Padding(4);
             this.LoginButt.Name = "LoginButt";
             this.LoginButt.Size = new System.Drawing.Size(175, 84);
             this.LoginButt.TabIndex = 0;
@@ -50,12 +50,12 @@
             // 
             this.Welcome.AutoSize = true;
             this.Welcome.BackColor = System.Drawing.Color.Transparent;
-            this.Welcome.Font = new System.Drawing.Font("Palatino Linotype", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Welcome.Font = new System.Drawing.Font("Palatino Linotype", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Welcome.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Welcome.Location = new System.Drawing.Point(132, 135);
+            this.Welcome.Location = new System.Drawing.Point(239, 74);
             this.Welcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Welcome.Name = "Welcome";
-            this.Welcome.Size = new System.Drawing.Size(429, 44);
+            this.Welcome.Size = new System.Drawing.Size(630, 63);
             this.Welcome.TabIndex = 1;
             this.Welcome.Text = "The Friendly Budget Buddy";
             this.Welcome.Click += new System.EventHandler(this.Welcome_Click);
@@ -63,21 +63,22 @@
             // SignUp
             // 
             this.SignUp.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.SignUp.Location = new System.Drawing.Point(493, 348);
-            this.SignUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SignUp.Location = new System.Drawing.Point(694, 348);
+            this.SignUp.Margin = new System.Windows.Forms.Padding(4);
             this.SignUp.Name = "SignUp";
             this.SignUp.Size = new System.Drawing.Size(175, 84);
             this.SignUp.TabIndex = 2;
             this.SignUp.Text = "Sign Up";
             this.SignUp.UseVisualStyleBackColor = false;
+            this.SignUp.Click += new System.EventHandler(this.SignUp_Click);
             // 
             // WelcomePage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 26F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(709, 497);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.SignUp);
             this.Controls.Add(this.Welcome);
             this.Controls.Add(this.LoginButt);
