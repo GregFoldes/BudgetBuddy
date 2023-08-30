@@ -31,14 +31,14 @@ namespace WelcomePage
         {
             var openLogin = new Login();
             openLogin.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void SignUp_Click(object sender, EventArgs e)
         {
             var openSignUp = new SignUp();
             openSignUp.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

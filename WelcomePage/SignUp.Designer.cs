@@ -136,6 +136,7 @@
             this.SignUpSL.TabIndex = 8;
             this.SignUpSL.Text = "SignUp";
             this.SignUpSL.UseVisualStyleBackColor = false;
+            this.SignUpSL.Click += new System.EventHandler(this.SignUpSL_Click);
             // 
             // Back
             // 
@@ -165,7 +166,9 @@
             this.Controls.Add(this.Password);
             this.Controls.Add(this.Username);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "SignUp";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SignUp";
             this.ResumeLayout(false);
             this.PerformLayout();

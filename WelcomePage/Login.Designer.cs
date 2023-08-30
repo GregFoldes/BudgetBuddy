@@ -43,7 +43,7 @@
             this.Username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Username.ForeColor = System.Drawing.SystemColors.Window;
             this.Username.Location = new System.Drawing.Point(355, 182);
-            this.Username.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Username.Margin = new System.Windows.Forms.Padding(4);
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(341, 22);
             this.Username.TabIndex = 0;
@@ -55,7 +55,7 @@
             this.Password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Password.ForeColor = System.Drawing.SystemColors.Window;
             this.Password.Location = new System.Drawing.Point(355, 242);
-            this.Password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Password.Margin = new System.Windows.Forms.Padding(4);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(341, 22);
             this.Password.TabIndex = 1;
@@ -92,18 +92,19 @@
             // 
             this.LoginSL.BackColor = System.Drawing.SystemColors.ControlDark;
             this.LoginSL.Location = new System.Drawing.Point(355, 315);
-            this.LoginSL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LoginSL.Margin = new System.Windows.Forms.Padding(4);
             this.LoginSL.Name = "LoginSL";
             this.LoginSL.Size = new System.Drawing.Size(100, 28);
             this.LoginSL.TabIndex = 4;
             this.LoginSL.Text = "Login";
             this.LoginSL.UseVisualStyleBackColor = false;
+            this.LoginSL.Click += new System.EventHandler(this.LoginSL_Click);
             // 
             // Back
             // 
             this.Back.BackColor = System.Drawing.SystemColors.ControlDark;
             this.Back.Location = new System.Drawing.Point(596, 315);
-            this.Back.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Back.Margin = new System.Windows.Forms.Padding(4);
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(100, 28);
             this.Back.TabIndex = 5;
@@ -124,8 +125,10 @@
             this.Controls.Add(this.Password);
             this.Controls.Add(this.Username);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();

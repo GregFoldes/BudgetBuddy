@@ -52,7 +52,7 @@
             this.Welcome.BackColor = System.Drawing.Color.Transparent;
             this.Welcome.Font = new System.Drawing.Font("Palatino Linotype", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Welcome.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Welcome.Location = new System.Drawing.Point(239, 74);
+            this.Welcome.Location = new System.Drawing.Point(321, 60);
             this.Welcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Welcome.Name = "Welcome";
             this.Welcome.Size = new System.Drawing.Size(630, 63);
@@ -87,7 +87,9 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.MaximizeBox = false;
             this.Name = "WelcomePage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "The Friendly Budget Buddy";
             this.Load += new System.EventHandler(this.WelcomePage_Load);
             this.ResumeLayout(false);

@@ -26,7 +26,14 @@ namespace WelcomePage
         {
             var homeBut = new WelcomePage();
             homeBut.Show();
-            this.Hide();
+            this.Close();
+        }
+
+        private void SignUpSL_Click(object sender, EventArgs e)
+        {
+            var homeBut = new Home();
+            homeBut.Show();
+            this.Close();
         }
     }
 }
