@@ -53,10 +53,12 @@
             this.LogOut.TabIndex = 0;
             this.LogOut.Text = "Log Out";
             this.LogOut.UseVisualStyleBackColor = false;
+            this.LogOut.Click += new System.EventHandler(this.LogOut_Click);
             // 
             // HomeButton
             // 
             this.HomeButton.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.HomeButton.Enabled = false;
             this.HomeButton.Location = new System.Drawing.Point(12, 12);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(114, 34);
@@ -73,6 +75,7 @@
             this.ExpensePage.TabIndex = 2;
             this.ExpensePage.Text = "Expenses";
             this.ExpensePage.UseVisualStyleBackColor = false;
+            this.ExpensePage.Click += new System.EventHandler(this.ExpensePage_Click);
             // 
             // BudgetButton
             // 
@@ -94,6 +97,7 @@
             this.BankInfo.TabIndex = 4;
             this.BankInfo.Text = "Banking";
             this.BankInfo.UseVisualStyleBackColor = false;
+            this.BankInfo.Click += new System.EventHandler(this.BankInfo_Click);
             // 
             // SupportButton
             // 
@@ -104,6 +108,7 @@
             this.SupportButton.TabIndex = 5;
             this.SupportButton.Text = "Support";
             this.SupportButton.UseVisualStyleBackColor = false;
+            this.SupportButton.Click += new System.EventHandler(this.SupportButton_Click);
             // 
             // AccountButton
             // 
@@ -114,10 +119,13 @@
             this.AccountButton.TabIndex = 6;
             this.AccountButton.Text = "Account";
             this.AccountButton.UseVisualStyleBackColor = false;
+            this.AccountButton.Click += new System.EventHandler(this.AccountButton_Click);
             // 
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.Transparent;
+            this.chart1.BackSecondaryColor = System.Drawing.Color.Transparent;
+            this.chart1.BorderlineColor = System.Drawing.Color.Transparent;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Enabled = false;
@@ -125,12 +133,26 @@
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(50, 91);
             this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series1.BackImage = "C:\\Users\\gtfol\\Downloads\\16351392_v880-kul-16.jpg";
+            series1.BackImageTransparentColor = System.Drawing.Color.Transparent;
+            series1.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
+            series1.BackSecondaryColor = System.Drawing.Color.Transparent;
+            series1.BorderColor = System.Drawing.Color.Transparent;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Color = System.Drawing.Color.Transparent;
+            series1.IsVisibleInLegend = false;
+            series1.LabelBackColor = System.Drawing.Color.Transparent;
+            series1.LabelBorderColor = System.Drawing.Color.Transparent;
+            series1.LabelForeColor = System.Drawing.Color.Silver;
             series1.Legend = "Legend1";
+            series1.MarkerBorderColor = System.Drawing.Color.Transparent;
             series1.Name = "Series1";
+            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series1.ShadowColor = System.Drawing.Color.Transparent;
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(300, 300);
+            this.chart1.Size = new System.Drawing.Size(393, 362);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "chart1";
             // 

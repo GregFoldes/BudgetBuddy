@@ -47,6 +47,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account.Designer.cs">
+      <DependentUpon>Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Banking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Banking.Designer.cs">
+      <DependentUpon>Banking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Budget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Budget.Designer.cs">
+      <DependentUpon>Budget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expenses.Designer.cs">
+      <DependentUpon>Expenses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +89,12 @@
     <Compile Include="SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tips.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tips.Designer.cs">
+      <DependentUpon>Tips.cs</DependentUpon>
+    </Compile>
     <Compile Include="WelcomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +103,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Account.resx">
+      <DependentUpon>Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Banking.resx">
+      <DependentUpon>Banking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Budget.resx">
+      <DependentUpon>Budget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expenses.resx">
+      <DependentUpon>Expenses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tips.resx">
+      <DependentUpon>Tips.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WelcomePage.resx">
       <DependentUpon>WelcomePage.cs</DependentUpon>
