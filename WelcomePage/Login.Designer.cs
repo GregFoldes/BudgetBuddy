@@ -35,6 +35,7 @@
             this.ForgotPass = new System.Windows.Forms.LinkLabel();
             this.LoginSL = new System.Windows.Forms.Button();
             this.Back = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Username
@@ -48,6 +49,7 @@
             this.Username.Size = new System.Drawing.Size(341, 22);
             this.Username.TabIndex = 0;
             this.Username.Text = "Username";
+            this.Username.TextChanged += new System.EventHandler(this.Username_TextChanged);
             // 
             // Password
             // 
@@ -60,6 +62,7 @@
             this.Password.Size = new System.Drawing.Size(341, 22);
             this.Password.TabIndex = 1;
             this.Password.Text = "Password";
+            this.Password.TextChanged += new System.EventHandler(this.Password_TextChanged);
             // 
             // label1
             // 
@@ -112,12 +115,25 @@
             this.Back.UseVisualStyleBackColor = false;
             this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(419, 152);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(190, 16);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Invalid Username or Password";
+            this.label2.Visible = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.Back);
             this.Controls.Add(this.LoginSL);
             this.Controls.Add(this.ForgotPass);
@@ -143,5 +159,6 @@
         private System.Windows.Forms.LinkLabel ForgotPass;
         private System.Windows.Forms.Button LoginSL;
         private System.Windows.Forms.Button Back;
+        private System.Windows.Forms.Label label2;
     }
 }
