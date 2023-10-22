@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,16 +22,40 @@ namespace WelcomePage
         public Home()
         {
             InitializeComponent();
-            Random random = new Random();
-            int PersonalSpend = random.Next(1, 100);
-            int BillsSpend = random.Next(1, 100);
-            int SavingsSpend = random.Next(1, 100);
-            int SubscriptionSpend = random.Next(1, 100);
-            int OtherSpend = random.Next(1, 100);
+            int PersonalSpend = 0;
+            int BillsSpend = 0;
+            int SavingsSpend = 0;
+            int SubscriptionSpend = 0;
+            int OtherSpend = 0;
             PopulateDonutChart(PersonalSpend,BillsSpend,SavingsSpend,SubscriptionSpend,OtherSpend);
         }
         private void PopulateDonutChart(int personal, int bills, int savings, int subscriptions, int other)
         {
+            StreamReader sr = new StreamReader("C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\budgeting.txt");
+            StreamReader sra = new StreamReader("C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\admin.txt");
+            string username = sra.ReadLine();
+            int counter = 1;
+
+            while (sr.ReadLine() != username)
+            {
+                counter++;
+            }
+            for (int i = 1; i < counter; i++)
+            {
+                sr.ReadLine();
+
+                if (sr.EndOfStream)
+                {
+                    Console.WriteLine($"End of file.  The file only contains {i} lines.");
+                    break;
+                }
+            }
+
+            personal = Convert.ToInt32(sr.ReadLine());
+            bills = Convert.ToInt32(sr.ReadLine());
+            savings = Convert.ToInt32(sr.ReadLine());
+            subscriptions = Convert.ToInt32(sr.ReadLine());
+            other = Convert.ToInt32(sr.ReadLine());
 
             // Clear any existing data
             chart1.Series.Clear();
@@ -118,9 +143,5 @@ namespace WelcomePage
             this.Close();
         }
 
-        private void chart1_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

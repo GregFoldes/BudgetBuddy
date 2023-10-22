@@ -186,6 +186,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="TempDatabase\accounts.txt" />
+    <Content Include="TempDatabase\admin.txt" />
     <Content Include="TempDatabase\budgeting.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

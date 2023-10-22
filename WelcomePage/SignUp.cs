@@ -56,6 +56,8 @@ namespace WelcomePage
             else
             {
                 StreamWriter sw = new StreamWriter("C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\accounts.txt",true);
+                StreamWriter ss = new StreamWriter("C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\budgeting.txt", true);
+                StreamWriter sa = new StreamWriter("C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\admin.txt", false);
 
                 sw.WriteLine(newFileName);
                 sw.WriteLine(firstName);
@@ -64,6 +66,10 @@ namespace WelcomePage
                 sw.WriteLine(password);
                 sw.WriteLine("      ");
                 sw.Close();
+                ss.WriteLine(newFileName);
+                ss.Close();
+                sa.WriteLine(newFileName);
+                sa.Close();
                 var homeBut = new Home();
                 homeBut.Show();
                 this.Close();
