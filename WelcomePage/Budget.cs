@@ -24,12 +24,6 @@ namespace WelcomePage
             this.Close();
         }
 
-        private void newBudgetButt_Click(object sender, EventArgs e)
-        {
-            var newBudgetButt = new NewBudget();
-            newBudgetButt.Show();
-            this.Close();
-        }
 
         private void oldBudgetButt_Click(object sender, EventArgs e)
         {

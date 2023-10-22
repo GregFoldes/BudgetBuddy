@@ -46,7 +46,7 @@
             this.Username.BackColor = System.Drawing.SystemColors.MenuText;
             this.Username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Username.ForeColor = System.Drawing.SystemColors.Window;
-            this.Username.Location = new System.Drawing.Point(365, 320);
+            this.Username.Location = new System.Drawing.Point(365, 318);
             this.Username.Margin = new System.Windows.Forms.Padding(4);
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(341, 22);
@@ -59,7 +59,7 @@
             this.Password.BackColor = System.Drawing.SystemColors.MenuText;
             this.Password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Password.ForeColor = System.Drawing.SystemColors.Window;
-            this.Password.Location = new System.Drawing.Point(365, 350);
+            this.Password.Location = new System.Drawing.Point(365, 348);
             this.Password.Margin = new System.Windows.Forms.Padding(4);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(341, 22);
@@ -71,7 +71,7 @@
             this.Email.BackColor = System.Drawing.SystemColors.MenuText;
             this.Email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Email.ForeColor = System.Drawing.SystemColors.Window;
-            this.Email.Location = new System.Drawing.Point(365, 380);
+            this.Email.Location = new System.Drawing.Point(365, 378);
             this.Email.Margin = new System.Windows.Forms.Padding(4);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(341, 22);
@@ -83,7 +83,7 @@
             this.FirstName.BackColor = System.Drawing.SystemColors.MenuText;
             this.FirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FirstName.ForeColor = System.Drawing.SystemColors.Window;
-            this.FirstName.Location = new System.Drawing.Point(365, 260);
+            this.FirstName.Location = new System.Drawing.Point(365, 258);
             this.FirstName.Margin = new System.Windows.Forms.Padding(4);
             this.FirstName.Name = "FirstName";
             this.FirstName.Size = new System.Drawing.Size(147, 22);
@@ -95,7 +95,7 @@
             this.LastName.BackColor = System.Drawing.SystemColors.MenuText;
             this.LastName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LastName.ForeColor = System.Drawing.SystemColors.Window;
-            this.LastName.Location = new System.Drawing.Point(553, 260);
+            this.LastName.Location = new System.Drawing.Point(553, 258);
             this.LastName.Margin = new System.Windows.Forms.Padding(4);
             this.LastName.Name = "LastName";
             this.LastName.Size = new System.Drawing.Size(153, 22);
@@ -107,7 +107,7 @@
             this.PhoneNumber.BackColor = System.Drawing.SystemColors.MenuText;
             this.PhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PhoneNumber.ForeColor = System.Drawing.SystemColors.Window;
-            this.PhoneNumber.Location = new System.Drawing.Point(365, 290);
+            this.PhoneNumber.Location = new System.Drawing.Point(365, 288);
             this.PhoneNumber.Margin = new System.Windows.Forms.Padding(4);
             this.PhoneNumber.Name = "PhoneNumber";
             this.PhoneNumber.Size = new System.Drawing.Size(341, 22);

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -34,16 +36,38 @@ namespace WelcomePage
 
         private void LoginSL_Click(object sender, EventArgs e)
         {
-            if (UsernameInput == "admin" && PasswordInput == "nimda")
+            string username = Username.Text;
+            string password = Password.Text;
+            int counter = 0;
+
+
+            StreamReader sr = new StreamReader("C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\accounts.txt");
+            StreamWriter swa = new StreamWriter("C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\admin.txt", false);
+
+            swa.WriteLine(password);
+            string usercheck = "";
+            string passcheck = "";
+
+            while (sr.ReadLine() != username)
             {
-                var homeBut = new Home();
-                homeBut.Show();
-                this.Close();
+                counter++;
             }
-            else
+            for (int i = 0; i <= counter; i++)
             {
-                label2.Visible = true;
+                usercheck = sr.ReadLine();
+                passcheck = sr.ReadLine();
+                if (username == usercheck && password == passcheck)
+                {
+                    var homeButt = new Home();
+                    homeButt.Show();
+                    this.Close();
+                }
+                else
+                {
+                    label2.Visible = true;
+                }
             }
+
         }
 
         public void Username_TextChanged(object sender, EventArgs e)

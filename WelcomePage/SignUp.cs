@@ -48,7 +48,8 @@ namespace WelcomePage
     public void dataWriting(string newFileName, string firstName, string lastName, string phoneNumber, string email, string password, Boolean validation)
     {
            
-            if (string.IsNullOrEmpty(newFileName) && string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(newFileName) && string.IsNullOrEmpty(newFileName) && string.IsNullOrEmpty(newFileName))
+            if (string.IsNullOrEmpty(newFileName) && string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(newFileName) && string.IsNullOrEmpty(newFileName) && string.IsNullOrEmpty(newFileName) && newFileName == "Username" && firstName == "First Name"
+                && lastName == "Last Name" && email == "Email" && phoneNumber == "(###) ###-####")
             {
                 warningLabel.Text = "Please make sure everything is filled out";
                 
@@ -60,17 +61,18 @@ namespace WelcomePage
                 StreamWriter sa = new StreamWriter("C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\admin.txt", false);
 
                 sw.WriteLine(newFileName);
+                sw.WriteLine(password);
                 sw.WriteLine(firstName);
                 sw.WriteLine(lastName);
                 sw.WriteLine(email);
-                sw.WriteLine(password);
-                sw.WriteLine("      ");
+                sw.WriteLine("");
                 sw.Close();
                 ss.WriteLine(newFileName);
                 ss.Close();
                 sa.WriteLine(newFileName);
                 sa.Close();
-                var homeBut = new Home();
+
+                var homeBut = new CreateBudget();
                 homeBut.Show();
                 this.Close();
             }
