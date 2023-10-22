@@ -8,13 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BudgetBuddy
+namespace WelcomePage
 {
-    public partial class Form1 : Form
+    public partial class NewBudget : Form
     {
-        public Form1()
+        public NewBudget()
         {
             InitializeComponent();
         }
+
+        private void HomeButton_Click(object sender, EventArgs e)
+        {
+            var homeBut = new Home();
+            homeBut.Show();
+            this.Close();
+        }
+
     }
 }

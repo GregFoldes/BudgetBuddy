@@ -38,6 +38,7 @@
             this.signUpLabel = new System.Windows.Forms.Label();
             this.SignUpSL = new System.Windows.Forms.Button();
             this.Back = new System.Windows.Forms.Button();
+            this.warningLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Username
@@ -150,12 +151,23 @@
             this.Back.UseVisualStyleBackColor = false;
             this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
+            // warningLabel
+            // 
+            this.warningLabel.AutoSize = true;
+            this.warningLabel.BackColor = System.Drawing.Color.Transparent;
+            this.warningLabel.ForeColor = System.Drawing.Color.Brown;
+            this.warningLabel.Location = new System.Drawing.Point(503, 199);
+            this.warningLabel.Name = "warningLabel";
+            this.warningLabel.Size = new System.Drawing.Size(0, 16);
+            this.warningLabel.TabIndex = 11;
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.warningLabel);
             this.Controls.Add(this.Back);
             this.Controls.Add(this.SignUpSL);
             this.Controls.Add(this.signUpLabel);
@@ -186,5 +198,6 @@
         private System.Windows.Forms.Label signUpLabel;
         private System.Windows.Forms.Button SignUpSL;
         private System.Windows.Forms.Button Back;
+        private System.Windows.Forms.Label warningLabel;
     }
 }

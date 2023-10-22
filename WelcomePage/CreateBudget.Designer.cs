@@ -1,6 +1,6 @@
-﻿namespace BudgetBuddy
+﻿namespace WelcomePage
 {
-    partial class Form1
+    partial class CreateBudget
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateBudget));
+            this.SuspendLayout();
+            // 
+            // CreateBudget
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.BackgroundImage = global::WelcomePage.Properties.Resources._16351392_v880_kul_16;
+            this.ClientSize = new System.Drawing.Size(907, 755);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "CreateBudget";
+            this.Text = "CreateBudget";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

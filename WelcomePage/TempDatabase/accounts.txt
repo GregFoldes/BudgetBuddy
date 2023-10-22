@@ -1,0 +1,25 @@
+Username
+First Name
+Last Name
+Email
+Password
+      
+test
+test
+test
+test@test.test
+tset
+      
+kkrt54
+Wallace
+Vincent
+randomemail@gmail.com
+Password56
+      
+admin
+admin
+111111111111
+admin
+nimda
+admin@admin.com
+
