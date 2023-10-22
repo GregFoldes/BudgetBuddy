@@ -6,10 +6,10 @@ admin
 admin@admin.com
 
 Username
+Password
 First Name
 Last Name
 Email
-Password
 
 gtfoldes
 testpass

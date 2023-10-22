@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WelcomePage
 {
@@ -38,36 +39,38 @@ namespace WelcomePage
         {
             string username = Username.Text;
             string password = Password.Text;
-            int counter = 0;
-
-
-            StreamReader sr = new StreamReader("C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\accounts.txt");
-            StreamWriter swa = new StreamWriter("C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\admin.txt", false);
-
-            swa.WriteLine(password);
-            string usercheck = "";
-            string passcheck = "";
-
-            while (sr.ReadLine() != username)
+            if (ValidateLogin(username, password) == true)
             {
-                counter++;
+                var homeButt = new Home();
+                homeButt.Show();
+                this.Close();
             }
-            for (int i = 0; i <= counter; i++)
+            else
             {
-                usercheck = sr.ReadLine();
-                passcheck = sr.ReadLine();
-                if (username == usercheck && password == passcheck)
+                label2.Visible = true;
+            }
+        }
+        public Boolean ValidateLogin(string username, string password)
+        {
+            string filePath = "C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\accounts.txt";
+
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
                 {
-                    var homeButt = new Home();
-                    homeButt.Show();
-                    this.Close();
-                }
-                else
-                {
-                    label2.Visible = true;
+                    string usercheck = line;
+                    string passcheck = sr.ReadLine();
+
+                    if (usercheck == username && passcheck == password)
+                    {
+                        return true;
+                    }
                 }
             }
 
+            // If no matching credentials were found, return false
+            return false;
         }
 
         public void Username_TextChanged(object sender, EventArgs e)
