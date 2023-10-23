@@ -23,83 +23,69 @@ namespace WelcomePage
         public Home()
         {
             InitializeComponent();
-            int PersonalSpend = 20;
-            int BillsSpend = 20;
-            int SavingsSpend = 20;
-            int SubscriptionSpend = 20;
-            int OtherSpend = 20;
-            PopulateDonutChart(PersonalSpend,BillsSpend,SavingsSpend,SubscriptionSpend,OtherSpend);
+            PopulateDonutChart();
         }
-        private void PopulateDonutChart(int personal, int bills, int savings, int subscriptions, int other)
-        {
-            string budgetFilePath = "C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\budgeting.txt";
-            string adminFilePath = "C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\admin.txt";
 
-            string personalStr = "";
-            string billStr = "";
-            string savingStr = "";
-            string subscriptStr = "";
-            string otherStr = "";
+        private void PopulateDonutChart()
+        {
+            string adminFilePath = "C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\admin.txt";
 
             try
             {
-                using (StreamReader sra = new StreamReader(adminFilePath))
-                using (StreamReader sr = new StreamReader(budgetFilePath))
+                string username = File.ReadAllText(adminFilePath).Trim();
+
+                string budgetFilePath = "C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\budgeting.txt";
+                string[] budgetLines = File.ReadAllLines(budgetFilePath);
+
+                // Find the line that matches the username
+                int usernameIndex = Array.IndexOf(budgetLines, username);
+
+                if (usernameIndex >= 0 && usernameIndex + 5 < budgetLines.Length)
                 {
-                    string username = sra.ReadLine();
-                    int counter = 1;
+                    int personal = int.Parse(budgetLines[usernameIndex + 1]);
+                    int bills = int.Parse(budgetLines[usernameIndex + 2]);
+                    int savings = int.Parse(budgetLines[usernameIndex + 3]);
+                    int subscriptions = int.Parse(budgetLines[usernameIndex + 4]);
+                    int other = int.Parse(budgetLines[usernameIndex + 5]);
 
-                    while (sr.ReadLine() != username)
-                    {
-                        counter++;
-                    }
-                    for (int i = 1; i <= counter; i++)
-                    {
-                        sr.ReadLine();
-                    }
-                    personal = Convert.ToInt32(sr.ReadLine());
-                    bills = Convert.ToInt32(sr.ReadLine());
-                    savings = Convert.ToInt32(sr.ReadLine());
-                    subscriptions = Convert.ToInt32(sr.ReadLine());
-                    other = Convert.ToInt32(sr.ReadLine());
-                    sr.Close();
-                    sra.Close();
+                    // Clear any existing data
+                    chart1.Series.Clear();
+                    chart1.BackColor = Color.Transparent;
 
+                    // Create a new series
+                    Series series = new Series("Categories");
+                    series.ChartType = SeriesChartType.Doughnut;
+
+                    // Add data points
+                    series.Points.AddXY("Personal", personal);
+                    series.Points.AddXY("Bills", bills);
+                    series.Points.AddXY("Savings", savings);
+                    series.Points.AddXY("Subscriptions", subscriptions);
+                    series.Points.AddXY("Other", other);
+
+                    // Add the series to the chart
+                    chart1.Series.Add(series);
+
+                    // Customize the appearance if needed
+                    series["PieLabelStyle"] = "Outside"; // Show labels outside the donut
+                    series["DoughnutRadius"] = "40"; // Adjust the inner radius of the donut (percentage)
                 }
-                
-                // Clear any existing data
-                chart1.Series.Clear();
-                chart1.BackColor = Color.Transparent;
-
-                // Create a new series
-                Series series = new Series("Categories");
-                series.ChartType = SeriesChartType.Doughnut;
-
-                // Add data points
-                series.Points.AddXY("", personal);
-                series.Points.AddXY("", bills);
-                series.Points.AddXY("", savings);
-                series.Points.AddXY("", subscriptions);
-                series.Points.AddXY("", other);
-
-                // Add the series to the chart
-                chart1.Series.Add(series);
-
-                // Customize the appearance if needed
-                series["PieLabelStyle"] = "Outside"; // Show labels outside the donut
-                series["DoughnutRadius"] = "40"; // Adjust the inner radius of the donut (percentage)
+                else
+                {
+                    // Handle the case where the username is not found or there are not enough lines of data.
+                    MessageBox.Show("Invalid data format in budget file or username not found.");
+                }
             }
             catch (Exception ex)
             {
                 // Handle exceptions, such as file not found or format issues
-                Console.WriteLine("An error occurred: " + ex.Message);
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
 
 
 
-
-        private void button5_Click(object sender, EventArgs e)
+    private void button5_Click(object sender, EventArgs e)
         {
 
         }
