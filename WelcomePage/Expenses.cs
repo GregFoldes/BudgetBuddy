@@ -33,13 +33,13 @@ namespace WelcomePage
                 // Find the line that matches the username
                 int usernameIndex = Array.IndexOf(budgetLines, username);
 
-                if (usernameIndex >= 0 && usernameIndex + 5 < budgetLines.Length)
+                if (usernameIndex >= 0 && usernameIndex + 6 < budgetLines.Length)
                 {
-                    int personal = int.Parse(budgetLines[usernameIndex + 1]);
-                    int bills = int.Parse(budgetLines[usernameIndex + 2]);
-                    int savings = int.Parse(budgetLines[usernameIndex + 3]);
-                    int subscriptions = int.Parse(budgetLines[usernameIndex + 4]);
-                    int other = int.Parse(budgetLines[usernameIndex + 5]);
+                    int personal = int.Parse(budgetLines[usernameIndex + 2]);
+                    int bills = int.Parse(budgetLines[usernameIndex + 3]);
+                    int savings = int.Parse(budgetLines[usernameIndex + 4]);
+                    int subscriptions = int.Parse(budgetLines[usernameIndex + 5]);
+                    int other = int.Parse(budgetLines[usernameIndex + 6]);
 
                     // Clear any existing data
                     chart1.Series.Clear();

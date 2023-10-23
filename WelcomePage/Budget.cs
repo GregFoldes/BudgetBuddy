@@ -27,7 +27,7 @@ namespace WelcomePage
 
         private void oldBudgetButt_Click(object sender, EventArgs e)
         {
-            var oldBudgetButt = new Home();
+            var oldBudgetButt = new CurrentBudget();
             oldBudgetButt.Show();
             this.Close();
         }
