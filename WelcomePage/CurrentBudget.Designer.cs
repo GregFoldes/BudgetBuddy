@@ -77,7 +77,6 @@
             // HomeButton
             // 
             this.HomeButton.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.HomeButton.Enabled = false;
             this.HomeButton.Location = new System.Drawing.Point(12, 12);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(114, 34);
