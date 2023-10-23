@@ -153,7 +153,13 @@ namespace WelcomePage
                     DBPercentLabel.Text = dbills + "%";
                     DSPercentLabel.Text = dsavings + "%";
                     DSubPercentLabel.Text = dsubscriptions + "%";
-                    DOPercentLabel.Text = dsavings + "%";
+                    label22.Text = dsavings + "%";
+
+                    PDiffLabel.Text = DifferenceCalc(personal, DesiredAmountCalc(dpersonal, total));
+                    BDiffLabel.Text = DifferenceCalc(bills, DesiredAmountCalc(dbills, total));
+                    SDiffLabel.Text = DifferenceCalc(savings, DesiredAmountCalc(dsavings, total));
+                    SubDiffLabel.Text = DifferenceCalc(subscriptions, DesiredAmountCalc(dsubscriptions, total));
+                    ODiffLabel.Text = DifferenceCalc(other, DesiredAmountCalc(dother, total));
 
 
                 }
@@ -181,7 +187,29 @@ namespace WelcomePage
             double Rammount = Math.Round(ammount, 2);
             return Rammount;
         }
+        public string DifferenceCalc(int ammount, double ammount2)
+        {
+            double difference;
+            if (((double)ammount - ammount2) < 0)
+            {
+                difference = ammount2 - (double)ammount;
+                double rdiff = Math.Round(difference, 2);
+                return "+ $" + rdiff;
+            }
+            else
+            {
+                difference = (double)ammount - ammount2;
+                double rdiff = Math.Round(difference, 2);
+                return "- $" + rdiff;
+            }
+            
+        }
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
         {
 
         }

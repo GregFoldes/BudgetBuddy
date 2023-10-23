@@ -130,9 +130,9 @@ namespace WelcomePage
         public double PercentCalc(int amount, int total)
         {
             double percent = ((double)amount / total) * 100.0;
-            return percent;
+            double Rpercent = Math.Round(percent, 2);
+            return Rpercent;
         }
-
         private void BillPercent_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsNumber(e.KeyChar);

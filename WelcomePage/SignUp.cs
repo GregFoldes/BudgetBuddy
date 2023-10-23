@@ -65,6 +65,7 @@ namespace WelcomePage
                 sw.WriteLine(firstName);
                 sw.WriteLine(lastName);
                 sw.WriteLine(email);
+                sw.WriteLine(phoneNumber);
                 sw.Close();
                 ss.WriteLine(newFileName);
                 ss.Close();

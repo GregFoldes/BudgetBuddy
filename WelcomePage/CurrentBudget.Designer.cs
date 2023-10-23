@@ -60,11 +60,16 @@
             this.DSSpendLabel = new System.Windows.Forms.Label();
             this.DBSpendLabel = new System.Windows.Forms.Label();
             this.DPSpendLabel = new System.Windows.Forms.Label();
-            this.DOPercentLabel = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.DSubPercentLabel = new System.Windows.Forms.Label();
             this.DSPercentLabel = new System.Windows.Forms.Label();
             this.DBPercentLabel = new System.Windows.Forms.Label();
             this.DPPercentLabel = new System.Windows.Forms.Label();
+            this.ODiffLabel = new System.Windows.Forms.Label();
+            this.SubDiffLabel = new System.Windows.Forms.Label();
+            this.SDiffLabel = new System.Windows.Forms.Label();
+            this.BDiffLabel = new System.Windows.Forms.Label();
+            this.PDiffLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
@@ -94,7 +99,7 @@
             legend1.Enabled = false;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(76, 78);
+            this.chart1.Location = new System.Drawing.Point(35, 96);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.BackImage = "C:\\Users\\gtfol\\Downloads\\16351392_v880-kul-16.jpg";
@@ -118,6 +123,7 @@
             this.chart1.Size = new System.Drawing.Size(393, 362);
             this.chart1.TabIndex = 8;
             this.chart1.Text = "chart1";
+            this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
             // chart2
             // 
@@ -132,7 +138,7 @@
             legend2.Enabled = false;
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
-            this.chart2.Location = new System.Drawing.Point(487, 65);
+            this.chart2.Location = new System.Drawing.Point(482, 96);
             this.chart2.Name = "chart2";
             this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series2.BackImage = "C:\\Users\\gtfol\\Downloads\\16351392_v880-kul-16.jpg";
@@ -249,9 +255,9 @@
             this.OSpendLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.OSpendLabel.Location = new System.Drawing.Point(169, 743);
             this.OSpendLabel.Name = "OSpendLabel";
-            this.OSpendLabel.Size = new System.Drawing.Size(56, 20);
+            this.OSpendLabel.Size = new System.Drawing.Size(19, 20);
             this.OSpendLabel.TabIndex = 21;
-            this.OSpendLabel.Text = "Other";
+            this.OSpendLabel.Text = "1";
             // 
             // SubSpendLabel
             // 
@@ -261,9 +267,9 @@
             this.SubSpendLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.SubSpendLabel.Location = new System.Drawing.Point(169, 691);
             this.SubSpendLabel.Name = "SubSpendLabel";
-            this.SubSpendLabel.Size = new System.Drawing.Size(124, 20);
+            this.SubSpendLabel.Size = new System.Drawing.Size(19, 20);
             this.SubSpendLabel.TabIndex = 20;
-            this.SubSpendLabel.Text = "Subscriptions";
+            this.SubSpendLabel.Text = "1";
             // 
             // SSpendLabel
             // 
@@ -273,9 +279,9 @@
             this.SSpendLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.SSpendLabel.Location = new System.Drawing.Point(169, 636);
             this.SSpendLabel.Name = "SSpendLabel";
-            this.SSpendLabel.Size = new System.Drawing.Size(75, 20);
+            this.SSpendLabel.Size = new System.Drawing.Size(19, 20);
             this.SSpendLabel.TabIndex = 19;
-            this.SSpendLabel.Text = "Savings";
+            this.SSpendLabel.Text = "1";
             // 
             // BSpendLabel
             // 
@@ -285,9 +291,9 @@
             this.BSpendLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.BSpendLabel.Location = new System.Drawing.Point(169, 587);
             this.BSpendLabel.Name = "BSpendLabel";
-            this.BSpendLabel.Size = new System.Drawing.Size(47, 20);
+            this.BSpendLabel.Size = new System.Drawing.Size(19, 20);
             this.BSpendLabel.TabIndex = 18;
-            this.BSpendLabel.Text = "Bills";
+            this.BSpendLabel.Text = "1";
             // 
             // PSpendLabel
             // 
@@ -297,9 +303,9 @@
             this.PSpendLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.PSpendLabel.Location = new System.Drawing.Point(169, 532);
             this.PSpendLabel.Name = "PSpendLabel";
-            this.PSpendLabel.Size = new System.Drawing.Size(83, 20);
+            this.PSpendLabel.Size = new System.Drawing.Size(19, 20);
             this.PSpendLabel.TabIndex = 17;
-            this.PSpendLabel.Text = "Personal";
+            this.PSpendLabel.Text = "1";
             // 
             // OPercentLabel
             // 
@@ -307,11 +313,11 @@
             this.OPercentLabel.BackColor = System.Drawing.Color.Transparent;
             this.OPercentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OPercentLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.OPercentLabel.Location = new System.Drawing.Point(311, 743);
+            this.OPercentLabel.Location = new System.Drawing.Point(285, 743);
             this.OPercentLabel.Name = "OPercentLabel";
-            this.OPercentLabel.Size = new System.Drawing.Size(56, 20);
+            this.OPercentLabel.Size = new System.Drawing.Size(19, 20);
             this.OPercentLabel.TabIndex = 26;
-            this.OPercentLabel.Text = "Other";
+            this.OPercentLabel.Text = "1";
             // 
             // SubPercentLabel
             // 
@@ -319,11 +325,11 @@
             this.SubPercentLabel.BackColor = System.Drawing.Color.Transparent;
             this.SubPercentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SubPercentLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.SubPercentLabel.Location = new System.Drawing.Point(311, 691);
+            this.SubPercentLabel.Location = new System.Drawing.Point(285, 691);
             this.SubPercentLabel.Name = "SubPercentLabel";
-            this.SubPercentLabel.Size = new System.Drawing.Size(124, 20);
+            this.SubPercentLabel.Size = new System.Drawing.Size(19, 20);
             this.SubPercentLabel.TabIndex = 25;
-            this.SubPercentLabel.Text = "Subscriptions";
+            this.SubPercentLabel.Text = "1";
             // 
             // SPercentLabel
             // 
@@ -331,11 +337,11 @@
             this.SPercentLabel.BackColor = System.Drawing.Color.Transparent;
             this.SPercentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SPercentLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.SPercentLabel.Location = new System.Drawing.Point(311, 636);
+            this.SPercentLabel.Location = new System.Drawing.Point(285, 636);
             this.SPercentLabel.Name = "SPercentLabel";
-            this.SPercentLabel.Size = new System.Drawing.Size(75, 20);
+            this.SPercentLabel.Size = new System.Drawing.Size(19, 20);
             this.SPercentLabel.TabIndex = 24;
-            this.SPercentLabel.Text = "Savings";
+            this.SPercentLabel.Text = "1";
             // 
             // BPercentLabel
             // 
@@ -343,11 +349,11 @@
             this.BPercentLabel.BackColor = System.Drawing.Color.Transparent;
             this.BPercentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BPercentLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.BPercentLabel.Location = new System.Drawing.Point(311, 587);
+            this.BPercentLabel.Location = new System.Drawing.Point(285, 587);
             this.BPercentLabel.Name = "BPercentLabel";
-            this.BPercentLabel.Size = new System.Drawing.Size(47, 20);
+            this.BPercentLabel.Size = new System.Drawing.Size(19, 20);
             this.BPercentLabel.TabIndex = 23;
-            this.BPercentLabel.Text = "Bills";
+            this.BPercentLabel.Text = "1";
             // 
             // PPercentLabel
             // 
@@ -355,11 +361,11 @@
             this.PPercentLabel.BackColor = System.Drawing.Color.Transparent;
             this.PPercentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PPercentLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.PPercentLabel.Location = new System.Drawing.Point(311, 532);
+            this.PPercentLabel.Location = new System.Drawing.Point(285, 532);
             this.PPercentLabel.Name = "PPercentLabel";
-            this.PPercentLabel.Size = new System.Drawing.Size(83, 20);
+            this.PPercentLabel.Size = new System.Drawing.Size(19, 20);
             this.PPercentLabel.TabIndex = 22;
-            this.PPercentLabel.Text = "Personal";
+            this.PPercentLabel.Text = "1";
             // 
             // DOSpendLabel
             // 
@@ -367,11 +373,11 @@
             this.DOSpendLabel.BackColor = System.Drawing.Color.Transparent;
             this.DOSpendLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DOSpendLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.DOSpendLabel.Location = new System.Drawing.Point(564, 743);
+            this.DOSpendLabel.Location = new System.Drawing.Point(607, 743);
             this.DOSpendLabel.Name = "DOSpendLabel";
-            this.DOSpendLabel.Size = new System.Drawing.Size(56, 20);
+            this.DOSpendLabel.Size = new System.Drawing.Size(19, 20);
             this.DOSpendLabel.TabIndex = 31;
-            this.DOSpendLabel.Text = "Other";
+            this.DOSpendLabel.Text = "1";
             // 
             // DSubSpendLabel
             // 
@@ -379,11 +385,11 @@
             this.DSubSpendLabel.BackColor = System.Drawing.Color.Transparent;
             this.DSubSpendLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DSubSpendLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.DSubSpendLabel.Location = new System.Drawing.Point(564, 691);
+            this.DSubSpendLabel.Location = new System.Drawing.Point(607, 691);
             this.DSubSpendLabel.Name = "DSubSpendLabel";
-            this.DSubSpendLabel.Size = new System.Drawing.Size(124, 20);
+            this.DSubSpendLabel.Size = new System.Drawing.Size(19, 20);
             this.DSubSpendLabel.TabIndex = 30;
-            this.DSubSpendLabel.Text = "Subscriptions";
+            this.DSubSpendLabel.Text = "1";
             // 
             // DSSpendLabel
             // 
@@ -391,11 +397,11 @@
             this.DSSpendLabel.BackColor = System.Drawing.Color.Transparent;
             this.DSSpendLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DSSpendLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.DSSpendLabel.Location = new System.Drawing.Point(564, 636);
+            this.DSSpendLabel.Location = new System.Drawing.Point(607, 636);
             this.DSSpendLabel.Name = "DSSpendLabel";
-            this.DSSpendLabel.Size = new System.Drawing.Size(75, 20);
+            this.DSSpendLabel.Size = new System.Drawing.Size(19, 20);
             this.DSSpendLabel.TabIndex = 29;
-            this.DSSpendLabel.Text = "Savings";
+            this.DSSpendLabel.Text = "1";
             // 
             // DBSpendLabel
             // 
@@ -403,11 +409,11 @@
             this.DBSpendLabel.BackColor = System.Drawing.Color.Transparent;
             this.DBSpendLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DBSpendLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.DBSpendLabel.Location = new System.Drawing.Point(564, 587);
+            this.DBSpendLabel.Location = new System.Drawing.Point(607, 587);
             this.DBSpendLabel.Name = "DBSpendLabel";
-            this.DBSpendLabel.Size = new System.Drawing.Size(47, 20);
+            this.DBSpendLabel.Size = new System.Drawing.Size(19, 20);
             this.DBSpendLabel.TabIndex = 28;
-            this.DBSpendLabel.Text = "Bills";
+            this.DBSpendLabel.Text = "1";
             // 
             // DPSpendLabel
             // 
@@ -415,23 +421,23 @@
             this.DPSpendLabel.BackColor = System.Drawing.Color.Transparent;
             this.DPSpendLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DPSpendLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.DPSpendLabel.Location = new System.Drawing.Point(564, 532);
+            this.DPSpendLabel.Location = new System.Drawing.Point(607, 532);
             this.DPSpendLabel.Name = "DPSpendLabel";
-            this.DPSpendLabel.Size = new System.Drawing.Size(83, 20);
+            this.DPSpendLabel.Size = new System.Drawing.Size(19, 20);
             this.DPSpendLabel.TabIndex = 27;
-            this.DPSpendLabel.Text = "Personal";
+            this.DPSpendLabel.Text = "1";
             // 
-            // DOPercentLabel
+            // label22
             // 
-            this.DOPercentLabel.AutoSize = true;
-            this.DOPercentLabel.BackColor = System.Drawing.Color.Transparent;
-            this.DOPercentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DOPercentLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.DOPercentLabel.Location = new System.Drawing.Point(727, 743);
-            this.DOPercentLabel.Name = "DOPercentLabel";
-            this.DOPercentLabel.Size = new System.Drawing.Size(56, 20);
-            this.DOPercentLabel.TabIndex = 36;
-            this.DOPercentLabel.Text = "Other";
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.Transparent;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.SystemColors.Control;
+            this.label22.Location = new System.Drawing.Point(727, 743);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(19, 20);
+            this.label22.TabIndex = 36;
+            this.label22.Text = "1";
             // 
             // DSubPercentLabel
             // 
@@ -441,9 +447,9 @@
             this.DSubPercentLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.DSubPercentLabel.Location = new System.Drawing.Point(727, 691);
             this.DSubPercentLabel.Name = "DSubPercentLabel";
-            this.DSubPercentLabel.Size = new System.Drawing.Size(124, 20);
+            this.DSubPercentLabel.Size = new System.Drawing.Size(19, 20);
             this.DSubPercentLabel.TabIndex = 35;
-            this.DSubPercentLabel.Text = "Subscriptions";
+            this.DSubPercentLabel.Text = "1";
             // 
             // DSPercentLabel
             // 
@@ -453,9 +459,9 @@
             this.DSPercentLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.DSPercentLabel.Location = new System.Drawing.Point(727, 636);
             this.DSPercentLabel.Name = "DSPercentLabel";
-            this.DSPercentLabel.Size = new System.Drawing.Size(75, 20);
+            this.DSPercentLabel.Size = new System.Drawing.Size(19, 20);
             this.DSPercentLabel.TabIndex = 34;
-            this.DSPercentLabel.Text = "Savings";
+            this.DSPercentLabel.Text = "1";
             // 
             // DBPercentLabel
             // 
@@ -465,9 +471,9 @@
             this.DBPercentLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.DBPercentLabel.Location = new System.Drawing.Point(727, 587);
             this.DBPercentLabel.Name = "DBPercentLabel";
-            this.DBPercentLabel.Size = new System.Drawing.Size(47, 20);
+            this.DBPercentLabel.Size = new System.Drawing.Size(19, 20);
             this.DBPercentLabel.TabIndex = 33;
-            this.DBPercentLabel.Text = "Bills";
+            this.DBPercentLabel.Text = "1";
             // 
             // DPPercentLabel
             // 
@@ -477,9 +483,69 @@
             this.DPPercentLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.DPPercentLabel.Location = new System.Drawing.Point(727, 532);
             this.DPPercentLabel.Name = "DPPercentLabel";
-            this.DPPercentLabel.Size = new System.Drawing.Size(83, 20);
+            this.DPPercentLabel.Size = new System.Drawing.Size(19, 20);
             this.DPPercentLabel.TabIndex = 32;
-            this.DPPercentLabel.Text = "Personal";
+            this.DPPercentLabel.Text = "1";
+            // 
+            // ODiffLabel
+            // 
+            this.ODiffLabel.AutoSize = true;
+            this.ODiffLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ODiffLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ODiffLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.ODiffLabel.Location = new System.Drawing.Point(427, 743);
+            this.ODiffLabel.Name = "ODiffLabel";
+            this.ODiffLabel.Size = new System.Drawing.Size(19, 20);
+            this.ODiffLabel.TabIndex = 41;
+            this.ODiffLabel.Text = "1";
+            // 
+            // SubDiffLabel
+            // 
+            this.SubDiffLabel.AutoSize = true;
+            this.SubDiffLabel.BackColor = System.Drawing.Color.Transparent;
+            this.SubDiffLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubDiffLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.SubDiffLabel.Location = new System.Drawing.Point(427, 691);
+            this.SubDiffLabel.Name = "SubDiffLabel";
+            this.SubDiffLabel.Size = new System.Drawing.Size(19, 20);
+            this.SubDiffLabel.TabIndex = 40;
+            this.SubDiffLabel.Text = "1";
+            // 
+            // SDiffLabel
+            // 
+            this.SDiffLabel.AutoSize = true;
+            this.SDiffLabel.BackColor = System.Drawing.Color.Transparent;
+            this.SDiffLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SDiffLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.SDiffLabel.Location = new System.Drawing.Point(427, 636);
+            this.SDiffLabel.Name = "SDiffLabel";
+            this.SDiffLabel.Size = new System.Drawing.Size(19, 20);
+            this.SDiffLabel.TabIndex = 39;
+            this.SDiffLabel.Text = "1";
+            // 
+            // BDiffLabel
+            // 
+            this.BDiffLabel.AutoSize = true;
+            this.BDiffLabel.BackColor = System.Drawing.Color.Transparent;
+            this.BDiffLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BDiffLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.BDiffLabel.Location = new System.Drawing.Point(427, 587);
+            this.BDiffLabel.Name = "BDiffLabel";
+            this.BDiffLabel.Size = new System.Drawing.Size(19, 20);
+            this.BDiffLabel.TabIndex = 38;
+            this.BDiffLabel.Text = "1";
+            // 
+            // PDiffLabel
+            // 
+            this.PDiffLabel.AutoSize = true;
+            this.PDiffLabel.BackColor = System.Drawing.Color.Transparent;
+            this.PDiffLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PDiffLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.PDiffLabel.Location = new System.Drawing.Point(427, 532);
+            this.PDiffLabel.Name = "PDiffLabel";
+            this.PDiffLabel.Size = new System.Drawing.Size(19, 20);
+            this.PDiffLabel.TabIndex = 37;
+            this.PDiffLabel.Text = "1";
             // 
             // CurrentBudget
             // 
@@ -487,7 +553,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WelcomePage.Properties.Resources._16351392_v880_kul_16;
             this.ClientSize = new System.Drawing.Size(906, 805);
-            this.Controls.Add(this.DOPercentLabel);
+            this.Controls.Add(this.ODiffLabel);
+            this.Controls.Add(this.SubDiffLabel);
+            this.Controls.Add(this.SDiffLabel);
+            this.Controls.Add(this.BDiffLabel);
+            this.Controls.Add(this.PDiffLabel);
+            this.Controls.Add(this.label22);
             this.Controls.Add(this.DSubPercentLabel);
             this.Controls.Add(this.DSPercentLabel);
             this.Controls.Add(this.DBPercentLabel);
@@ -554,10 +625,15 @@
         private System.Windows.Forms.Label DSSpendLabel;
         private System.Windows.Forms.Label DBSpendLabel;
         private System.Windows.Forms.Label DPSpendLabel;
-        private System.Windows.Forms.Label DOPercentLabel;
+        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label DSubPercentLabel;
         private System.Windows.Forms.Label DSPercentLabel;
         private System.Windows.Forms.Label DBPercentLabel;
         private System.Windows.Forms.Label DPPercentLabel;
+        private System.Windows.Forms.Label ODiffLabel;
+        private System.Windows.Forms.Label SubDiffLabel;
+        private System.Windows.Forms.Label SDiffLabel;
+        private System.Windows.Forms.Label BDiffLabel;
+        private System.Windows.Forms.Label PDiffLabel;
     }
 }
