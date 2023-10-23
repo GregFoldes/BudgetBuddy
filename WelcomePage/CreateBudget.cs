@@ -47,7 +47,6 @@ namespace WelcomePage
                 ss.WriteLine(SavingsPercent.Text);
                 ss.WriteLine(SavingPercent.Text);
                 ss.WriteLine(OtherPercent.Text);
-                ss.WriteLine("");
                 ss.Close();
                 valid = true;
             }
@@ -107,21 +106,34 @@ namespace WelcomePage
         private void PersonPercent_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsNumber(e.KeyChar);
-            int total = Convert.ToInt32(TIncome.Text);
-            int person = Convert.ToInt32(PersonSpend.Text);
-            int bills = Convert.ToInt32(BillSpend.Text);
-            int saving = Convert.ToInt32(SavingSpend.Text);
-            int subcript = Convert.ToInt32(SubcriptSpend.Text);
-            int other = Convert.ToInt32(OtherSpend.Text);
+            string t = TIncome.Text;
+            string p = PersonSpend.Text;
+            string b = BillSpend.Text;
+            string sg = SavingSpend.Text;
+            string sb = SubcriptSpend.Text;
+            string o = OtherSpend.Text;
 
-            perslabel.Text = (person / total).ToString()+ "%";
-            billslabel.Text = (bills / total).ToString()+ "%";
-            savingLabel.Text = (saving / total).ToString() + "%";
-            subscriptLabel.Text = (subcript / total).ToString() + "%";
-            otherLabel.Text = (other / total).ToString()+ "%";
+            int total = Convert.ToInt32(t);
+            int person = Convert.ToInt32(p);
+            int bills = Convert.ToInt32(b);
+            int saving = Convert.ToInt32(sg);
+            int subcript = Convert.ToInt32(sb);
+            int other = Convert.ToInt32(o);
+
+            perslabel.Text = PercentCalc(person, total) + "%";
+            billslabel.Text = PercentCalc(bills, total) + "%";
+            savingLabel.Text = PercentCalc(saving, total) + "%";
+            subscriptLabel.Text = PercentCalc(subcript, total) + "%";
+            otherLabel.Text = PercentCalc(other, total) + "%";
 
         }
+        public int PercentCalc(int ammount, int total)
+        {
+            int percent;
+            percent = (ammount / total) * 100;
 
+            return percent;
+        }
         private void BillPercent_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsNumber(e.KeyChar);

@@ -39,8 +39,11 @@ namespace WelcomePage
         {
             string username = Username.Text;
             string password = Password.Text;
+            StreamWriter sw = new StreamWriter("C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\admin.txt", false);
             if (ValidateLogin(username, password) == true)
             {
+                sw.WriteLine(username);
+                sw.Close();
                 var homeButt = new Home();
                 homeButt.Show();
                 this.Close();
@@ -64,13 +67,17 @@ namespace WelcomePage
 
                     if (usercheck == username && passcheck == password)
                     {
+                        sr.Close();
                         return true;
+
                     }
                 }
             }
 
             // If no matching credentials were found, return false
             return false;
+            
+
         }
 
         public void Username_TextChanged(object sender, EventArgs e)
