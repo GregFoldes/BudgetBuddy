@@ -24,6 +24,7 @@ namespace WelcomePage
         {
             InitializeComponent();
             PopulateDonutChart();
+            label1.Text = "WELCOME BACK, " + UserFirstName();
         }
 
         private void PopulateDonutChart()
@@ -57,11 +58,11 @@ namespace WelcomePage
                     series.ChartType = SeriesChartType.Doughnut;
 
                     // Add data points
-                    series.Points.AddXY("Personal", personal);
-                    series.Points.AddXY("Bills", bills);
-                    series.Points.AddXY("Savings", savings);
-                    series.Points.AddXY("Subscriptions", subscriptions);
-                    series.Points.AddXY("Other", other);
+                    series.Points.AddXY("", personal);
+                    series.Points.AddXY("", bills);
+                    series.Points.AddXY("", savings);
+                    series.Points.AddXY("", subscriptions);
+                    series.Points.AddXY("", other);
 
                     // Add the series to the chart
                     chart1.Series.Add(series);
@@ -82,7 +83,28 @@ namespace WelcomePage
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
+    public string UserFirstName()
+        {
+            string adminFilePath = "C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\admin.txt";
+            try
+            {
+                string username = File.ReadAllText(adminFilePath).Trim();
 
+                string accountFilePath = "C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\accounts.txt";
+                string[] accountLines = File.ReadAllLines(accountFilePath);
+
+                // Find the line that matches the username
+                int usernameIndex = Array.IndexOf(accountLines, username);
+
+                return accountLines[usernameIndex + 2].ToUpper();
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions, such as file not found or format issues
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+            return "User";
+        }
 
 
     private void button5_Click(object sender, EventArgs e)
@@ -144,5 +166,9 @@ namespace WelcomePage
             this.Close();
         }
 
+        private void chart1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

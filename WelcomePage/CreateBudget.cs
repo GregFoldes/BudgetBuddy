@@ -127,13 +127,12 @@ namespace WelcomePage
             otherLabel.Text = PercentCalc(other, total) + "%";
 
         }
-        public int PercentCalc(int ammount, int total)
+        public double PercentCalc(int amount, int total)
         {
-            int percent;
-            percent = (ammount / total) * 100;
-
+            double percent = ((double)amount / total) * 100.0;
             return percent;
         }
+
         private void BillPercent_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsNumber(e.KeyChar);
