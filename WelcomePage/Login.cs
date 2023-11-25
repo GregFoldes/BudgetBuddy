@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -39,13 +40,13 @@ namespace WelcomePage
         {
             string username = Username.Text;
             string password = Password.Text;
-            StreamWriter sw = new StreamWriter("C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\admin.txt", false);
-            if (ValidateLogin(username, password) == true)
+            if (ValidateLogin(username, password))
             {
-                sw.WriteLine(username);
-                sw.Close();
-                var homeButt = new Home();
-                homeButt.Show();
+                // Update the UserId in AppData
+                AppData.UserId = GetUserId(username, password);
+
+                var homeForm = new Home();
+                homeForm.Show();
                 this.Close();
             }
             else
@@ -53,32 +54,63 @@ namespace WelcomePage
                 label2.Visible = true;
             }
         }
-        public Boolean ValidateLogin(string username, string password)
+
+        private bool ValidateLogin(string username, string password)
         {
-            string filePath = "C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\accounts.txt";
-
-            using (StreamReader sr = new StreamReader(filePath))
+            try
             {
-                string line;
-                while ((line = sr.ReadLine()) != null)
+                using (SqlConnection connection = new SqlConnection(AppData.connectionString))
                 {
-                    string usercheck = line;
-                    string passcheck = sr.ReadLine();
+                    connection.Open();
 
-                    if (usercheck == username && passcheck == password)
+                    using (SqlCommand cmd = connection.CreateCommand())
                     {
-                        sr.Close();
-                        return true;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "SELECT COUNT(*) FROM [UserInformation] WHERE Username = @Username AND Password = @Password";
+                        cmd.Parameters.AddWithValue("Username", username);
+                        cmd.Parameters.AddWithValue("Password", password);
 
+                        int result = (int)cmd.ExecuteScalar();
+
+                        return result > 0;
                     }
                 }
             }
-
-            // If no matching credentials were found, return false
-            return false;
-            
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+                return false;
+            }
         }
+
+        private int GetUserId(string username, string password)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(AppData.connectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand cmd = connection.CreateCommand())
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "SELECT UserId FROM [UserInformation] WHERE Username = @Username AND Password = @Password";
+                        cmd.Parameters.AddWithValue("Username", username);
+                        cmd.Parameters.AddWithValue("Password", password);
+
+                        object result = cmd.ExecuteScalar();
+                        connection.Close();
+                        return result != null ? (int)result : -1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+                return -1;
+            }
+        }
+
 
         public void Username_TextChanged(object sender, EventArgs e)
         {

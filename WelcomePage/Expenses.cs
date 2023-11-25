@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -21,60 +22,76 @@ namespace WelcomePage
         }
         private void PopulateDonutChart()
         {
-            string adminFilePath = "C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\admin.txt";
-
             try
             {
-                string username = File.ReadAllText(adminFilePath).Trim();
+                // Read the user ID from the AppData class
+                int userId = AppData.UserId;
 
-                string budgetFilePath = "C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\TempDatabase\\budgeting.txt";
-                string[] budgetLines = File.ReadAllLines(budgetFilePath);
+                // Use a connection string to connect to your database
+                string connectionString = AppData.connectionString;
 
-                // Find the line that matches the username
-                int usernameIndex = Array.IndexOf(budgetLines, username);
-
-                if (usernameIndex >= 0 && usernameIndex + 6 < budgetLines.Length)
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    int personal = int.Parse(budgetLines[usernameIndex + 2]);
-                    int bills = int.Parse(budgetLines[usernameIndex + 3]);
-                    int savings = int.Parse(budgetLines[usernameIndex + 4]);
-                    int subscriptions = int.Parse(budgetLines[usernameIndex + 5]);
-                    int other = int.Parse(budgetLines[usernameIndex + 6]);
+                    connection.Open();
 
-                    // Clear any existing data
-                    chart1.Series.Clear();
-                    chart1.BackColor = Color.Transparent;
+                    // Use a SqlCommand to fetch budget data based on the user ID
+                    using (SqlCommand cmd = connection.CreateCommand())
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "SELECT Spending, Bills, Savings, Subscriptions, Other FROM [Cat] WHERE UserID = @UserID";
+                        cmd.Parameters.AddWithValue("UserID", userId);
 
-                    // Create a new series
-                    Series series = new Series("Categories");
-                    series.ChartType = SeriesChartType.Doughnut;
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                int personal = reader.GetInt32(0);
+                                int bills = reader.GetInt32(1);
+                                int savings = reader.GetInt32(2);
+                                int subscriptions = reader.GetInt32(3);
+                                int other = reader.GetInt32(4);
 
-                    // Add data points
-                    series.Points.AddXY("", personal);
-                    series.Points.AddXY("", bills);
-                    series.Points.AddXY("", savings);
-                    series.Points.AddXY("", subscriptions);
-                    series.Points.AddXY("", other);
+                                // Clear any existing data
+                                chart1.Series.Clear();
+                                chart1.BackColor = Color.Transparent;
 
-                    // Add the series to the chart
-                    chart1.Series.Add(series);
+                                // Create a new series
+                                Series series = new Series("Categories");
+                                series.ChartType = SeriesChartType.Doughnut;
 
-                    // Customize the appearance if needed
-                    series["PieLabelStyle"] = "Outside"; // Show labels outside the donut
-                    series["DoughnutRadius"] = "40"; // Adjust the inner radius of the donut (percentage)
-                }
-                else
-                {
-                    // Handle the case where the username is not found or there are not enough lines of data.
-                    MessageBox.Show("Invalid data format in budget file or username not found.");
+                                // Add data points
+                                series.Points.AddXY("", personal);
+                                series.Points.AddXY("", bills);
+                                series.Points.AddXY("", savings);
+                                series.Points.AddXY("", subscriptions);
+                                series.Points.AddXY("", other);
+
+                                // Add the series to the chart
+                                chart1.Series.Add(series);
+
+                                // Customize the appearance if needed
+                                series["PieLabelStyle"] = "Outside"; // Show labels outside the donut
+                                series["DoughnutRadius"] = "40"; // Adjust the inner radius of the donut (percentage)
+                                connection.Close();
+                            }
+                            else
+                            {
+                                // Handle the case where the user ID is not found
+                                MessageBox.Show("User ID not found in the database.");
+                            }
+                        }
+
+                    }
+
                 }
             }
             catch (Exception ex)
             {
-                // Handle exceptions, such as file not found or format issues
+                // Handle exceptions, such as database connection issues
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
+
 
 
         private void HomeButton_Click(object sender, EventArgs e)

@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[Cat] (
+    [UserID]        INT NOT NULL,
+    [Spending]      INT NULL,
+    [Savings]       INT NULL,
+    [Subscriptions] INT NULL,
+    [Bills]         INT NULL,
+    [Other]         INT NULL,
+    [Total] INT NULL, 
+    PRIMARY KEY CLUSTERED ([UserID] ASC)
+);
+

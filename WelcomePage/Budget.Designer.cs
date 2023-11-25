@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Budget));
             this.HomeButton = new System.Windows.Forms.Button();
             this.oldBudgetButt = new System.Windows.Forms.Button();
+            this.ChangeBut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // HomeButton
@@ -47,7 +48,7 @@
             // oldBudgetButt
             // 
             this.oldBudgetButt.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.oldBudgetButt.Location = new System.Drawing.Point(294, 247);
+            this.oldBudgetButt.Location = new System.Drawing.Point(511, 247);
             this.oldBudgetButt.Name = "oldBudgetButt";
             this.oldBudgetButt.Size = new System.Drawing.Size(157, 34);
             this.oldBudgetButt.TabIndex = 4;
@@ -55,12 +56,24 @@
             this.oldBudgetButt.UseVisualStyleBackColor = false;
             this.oldBudgetButt.Click += new System.EventHandler(this.oldBudgetButt_Click);
             // 
+            // ChangeBut
+            // 
+            this.ChangeBut.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.ChangeBut.Location = new System.Drawing.Point(91, 247);
+            this.ChangeBut.Name = "ChangeBut";
+            this.ChangeBut.Size = new System.Drawing.Size(157, 34);
+            this.ChangeBut.TabIndex = 5;
+            this.ChangeBut.Text = "Change/Create Budget";
+            this.ChangeBut.UseVisualStyleBackColor = false;
+            this.ChangeBut.Click += new System.EventHandler(this.ChangeBut_Click);
+            // 
             // Budget
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ChangeBut);
             this.Controls.Add(this.oldBudgetButt);
             this.Controls.Add(this.HomeButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -74,5 +87,6 @@
 
         private System.Windows.Forms.Button HomeButton;
         private System.Windows.Forms.Button oldBudgetButt;
+        private System.Windows.Forms.Button ChangeBut;
     }
 }

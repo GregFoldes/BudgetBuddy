@@ -345,9 +345,9 @@
             this.label8.Location = new System.Drawing.Point(41, 357);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(298, 41);
+            this.label8.Size = new System.Drawing.Size(271, 41);
             this.label8.TabIndex = 26;
-            this.label8.Text = "Desired Spending %";
+            this.label8.Text = "Desired Spending ";
             // 
             // label9
             // 

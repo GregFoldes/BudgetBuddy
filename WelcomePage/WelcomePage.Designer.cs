@@ -1,4 +1,6 @@
-﻿namespace WelcomePage
+﻿using System;
+
+namespace WelcomePage
 {
     partial class WelcomePage
     {
@@ -96,6 +98,8 @@
             this.PerformLayout();
 
         }
+
+
 
         #endregion
 

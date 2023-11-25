@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+
+
 
 namespace WelcomePage
 {
@@ -15,16 +18,13 @@ namespace WelcomePage
         public WelcomePage()
         {
             InitializeComponent();
+            AppData.connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\Database1.mdf;Integrated Security=True";
         }
 
-        private void WelcomePage_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void Welcome_Click(object sender, EventArgs e)
         {
-
+            // Your Welcome button click logic
         }
 
         private void LoginButt_Click(object sender, EventArgs e)
@@ -40,5 +40,12 @@ namespace WelcomePage
             openSignUp.Show();
             this.Close();
         }
+        private void WelcomePage_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+
+
     }
 }

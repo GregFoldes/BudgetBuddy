@@ -31,5 +31,13 @@ namespace WelcomePage
             oldBudgetButt.Show();
             this.Close();
         }
+
+        private void ChangeBut_Click(object sender, EventArgs e)
+        {
+            var ChangeButt = new CreateBudget();
+            ChangeButt.Show();
+            this.Close();
+
+        }
     }
 }
