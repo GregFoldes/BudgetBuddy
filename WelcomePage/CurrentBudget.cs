@@ -60,7 +60,7 @@ namespace WelcomePage
                         else
                         {
                             // Handle the case where the UserId is not found in the Cat table
-                            MessageBox.Show("UserId not found in the Cat table.");
+                            //MessageBox.Show("UserId not found in the Cat table.");
                         }
                     }
                 }
@@ -100,7 +100,7 @@ namespace WelcomePage
                         else
                         {
                             // Handle the case where the UserId is not found in the Des table
-                            MessageBox.Show("UserId not found in the Des table.");
+                            //MessageBox.Show("UserId not found in the Des table.");
                         }
                     }
                 }
@@ -165,7 +165,7 @@ namespace WelcomePage
             catch (Exception ex)
             {
                 // Handle exceptions, such as database connection issues
-                MessageBox.Show("An error occurred: 1 " + ex.Message);
+                //MessageBox.Show("An error occurred: 1 " + ex.Message);
             }
 
         }
@@ -247,7 +247,7 @@ namespace WelcomePage
                                                     else
                                                     {
                                                         // Handle the case where the UserId is not found in the Des table
-                                                        MessageBox.Show("UserId not found in the Des table.");
+                                                        //MessageBox.Show("UserId not found in the Des table.");
                                                     }
                                                 }
                                             }
@@ -255,7 +255,7 @@ namespace WelcomePage
                                         else
                                         {
                                             // Handle the case where the UserId is not found in the Cat table
-                                            MessageBox.Show("UserId not found in the Cat table.");
+                                            //MessageBox.Show("UserId not found in the Cat table.");
                                         }
                                     }
                                 }
@@ -263,7 +263,7 @@ namespace WelcomePage
                             else
                             {
                                 // Handle the case where the UserId is not found in the Total table
-                                MessageBox.Show("UserId not found in the Total table.");
+                                //MessageBox.Show("UserId not found in the Total table.");
                             }
                         }
                     }
@@ -272,7 +272,7 @@ namespace WelcomePage
             catch (Exception ex)
             {
                 // Handle exceptions, such as database connection issues
-                MessageBox.Show("An error occurred 2: " + ex.Message);
+                //MessageBox.Show("An error occurred 2: " + ex.Message);
             }
         }
 

@@ -16,18 +16,80 @@ namespace WelcomePage
 {
     public partial class Home : Form
     {
+        private Timer timer;
+        private int currentPointIndex;
+
         public int userID { get; set; }
-        private void Home_Load(object sender, EventArgs e)
-        {
-            
-        }
+
         public Home()
         {
             InitializeComponent();
+
+            // Initialization logic for components
+            label1.Text = "WELCOME BACK, " + UserFirstName().ToUpper();
+            chart1.Series.Add(new Series("Categories"));
+
+            // Initialize and configure the timer
+            timer = new Timer();
+            timer.Interval = 115; // 5000 milliseconds = 5 seconds
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
+            // Populate the doughnut chart
             PopulateDonutChart();
-            label1.Text = "WELCOME BACK, " + UserFirstName();
-           
         }
+
+        private void Home_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Dispose of the timer when the form is closing
+            timer.Stop();
+            timer.Dispose();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (chart1 != null && chart1.IsHandleCreated && chart1.Series != null)
+            {
+                // Access chart properties safely
+                Series series = chart1.Series.FirstOrDefault(s => s.Name == "Categories");
+
+                if (series != null)
+                {
+                    // Increase the doughnut radius by a small percentage
+                    int currentRadius = int.Parse(series["DoughnutRadius"]);
+                    int increment = 2; // Adjust as needed
+                    currentRadius += increment;
+
+                    // Stop the timer when the radius is at the desired size
+                    if (currentRadius >= 40)
+                    {
+                        timer.Stop();
+                        timer.Dispose(); // Dispose of the timer to release resources
+                        currentRadius = 40; // Ensure it's exactly the desired size
+                    }
+
+                    // Update doughnut radius in the UI thread
+                    UpdateDoughnutRadius(series, currentRadius);
+                }
+            }
+        }
+
+        private void UpdateDoughnutRadius(Series series, int radius)
+        {
+            if (chart1.InvokeRequired)
+            {
+                // If called from a different thread, invoke on the UI thread
+                chart1.Invoke(new Action(() => UpdateDoughnutRadius(series, radius)));
+            }
+            else
+            {
+                // Update doughnut radius
+                series["DoughnutRadius"] = radius.ToString();
+            }
+        }
+
+
+
 
         private string UserFirstName()
         {
@@ -67,7 +129,7 @@ namespace WelcomePage
             catch (Exception ex)
             {
                 // Handle exceptions, such as database connection issues
-                MessageBox.Show("An error occurred: " + ex.Message);
+                //MessageBox.Show("An error occurred: " + ex.Message);
                 return "Unknown User";
             }
         }
@@ -124,26 +186,30 @@ namespace WelcomePage
 
                                 // Customize the appearance if needed
                                 series["PieLabelStyle"] = "Outside"; // Show labels outside the donut
-                                series["DoughnutRadius"] = "40"; // Adjust the inner radius of the donut (percentage)
+                                series["DoughnutRadius"] = "0"; // Start with a small inner radius
+
+                                // Start the timer to gradually increase the doughnut radius
+                                currentPointIndex = 0;
+                                timer.Start();
+
                                 connection.Close();
                             }
                             else
                             {
                                 // Handle the case where the user ID is not found
-                                MessageBox.Show("User ID not found in the database.");
+                                //MessageBox.Show("User ID not found in the database.");
                             }
                         }
-
                     }
-
-                }
+                } // The 'Dispose' method of 'connection' is automatically called when exiting this block
             }
             catch (Exception ex)
             {
                 // Handle exceptions, such as database connection issues
-                MessageBox.Show("An error occurred: " + ex.Message);
+                //MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
+
 
 
         private void button5_Click(object sender, EventArgs e)
@@ -209,5 +275,7 @@ namespace WelcomePage
         {
 
         }
+
+
     }
 }

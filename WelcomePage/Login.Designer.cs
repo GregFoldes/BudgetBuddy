@@ -90,6 +90,7 @@
             this.ForgotPass.TabIndex = 3;
             this.ForgotPass.TabStop = true;
             this.ForgotPass.Text = "Forgot Password?";
+            this.ForgotPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ForgotPass_LinkClicked);
             // 
             // LoginSL
             // 

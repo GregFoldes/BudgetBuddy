@@ -83,7 +83,7 @@ namespace WelcomePage
             catch (Exception ex)
             {
                 // Handle exceptions, such as database connection issues
-                MessageBox.Show("An error occurred: " + ex.Message);
+                //MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
         private void InsertUserInformation(SqlConnection connection, string username, string password, string firstName, string lastName, string email, string phoneNumber, int UserID)

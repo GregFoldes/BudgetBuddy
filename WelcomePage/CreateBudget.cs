@@ -260,13 +260,13 @@ namespace WelcomePage
     {
         // Budget data creation or update was successful
         // Add any additional logic or messages here
-        MessageBox.Show("Budget data created or updated successfully.");
+        //MessageBox.Show("Budget data created or updated successfully.");
     }
     else
     {
         // Budget data creation or update failed
         // Handle the failure or display an error message
-        MessageBox.Show("Budget data creation or update failed. Please check your input.");
+        //MessageBox.Show("Budget data creation or update failed. Please check your input.");
     }
         }
     }

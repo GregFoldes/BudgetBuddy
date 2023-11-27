@@ -17,12 +17,12 @@ namespace WelcomePage
 {
     public partial class Account : Form
     {
-        
+
         public Account()
         {
             InitializeComponent();
             PopulateLabels();
-            
+
         }
 
         private void HomeButton_Click(object sender, EventArgs e)
@@ -36,17 +36,16 @@ namespace WelcomePage
         {
             try
             {
-               
                 int id = AppData.UserId;
 
-                using (SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\Database1.mdf;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection(AppData.connectionString))
                 {
                     connection.Open();
 
                     using (SqlCommand cmd = connection.CreateCommand())
                     {
                         cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "select UserID,Username,Password,Email,FirstName,LastName,PhoneNumber from [UserInformation] where UserID=@id";
+                        cmd.CommandText = "SELECT UserID, Username, Password, Email, FirstName, LastName, PhoneNumber FROM [UserInformation] WHERE UserID = @id";
                         cmd.Parameters.AddWithValue("id", id);
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
@@ -57,7 +56,10 @@ namespace WelcomePage
                                 LastLabel.Text = reader["LastName"].ToString();
                                 EmailLabel.Text = reader["Email"].ToString();
                                 UserLabel.Text = reader["Username"].ToString();
-                                PassLabel.Text = reader["Password"].ToString();
+
+                                // Hide the password with asterisks
+                                string password = reader["Password"].ToString();
+                                PassLabel.Text = new string('*', password.Length);
 
                                 string phoneNumber = reader["PhoneNumber"].ToString();
                                 if (phoneNumber.Length == 10 && long.TryParse(phoneNumber, out long numericPhoneNumber))
@@ -79,7 +81,5 @@ namespace WelcomePage
                 throw; // Rethrow the exception for further investigation.
             }
         }
-
-
     }
 }

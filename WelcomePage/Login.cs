@@ -78,7 +78,7 @@ namespace WelcomePage
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + ex.Message);
+                //MessageBox.Show("An error occurred: " + ex.Message);
                 return false;
             }
         }
@@ -106,7 +106,7 @@ namespace WelcomePage
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + ex.Message);
+                //MessageBox.Show("An error occurred: " + ex.Message);
                 return -1;
             }
         }
@@ -131,6 +131,19 @@ namespace WelcomePage
                 LoginSL.Enabled = true;
             }
             
+        }
+
+        private void ForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Enabled = false;
+
+            // Show the ForgotPass form
+            var forgotPass = new ForgotPass();
+
+            // Subscribe to the FormClosed event to re-enable the current form when ForgotPass form is closed
+            forgotPass.FormClosed += (s, args) => { this.Enabled = true; };
+
+            forgotPass.Show();
         }
     }
 }

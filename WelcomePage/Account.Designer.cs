@@ -217,7 +217,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(589, 419);
+            this.ClientSize = new System.Drawing.Size(513, 419);
             this.Controls.Add(this.PassLabel);
             this.Controls.Add(this.UserLabel);
             this.Controls.Add(this.PhoneLabel);
@@ -233,6 +233,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.HomeButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Account";
             this.Text = "Account";
             this.ResumeLayout(false);
