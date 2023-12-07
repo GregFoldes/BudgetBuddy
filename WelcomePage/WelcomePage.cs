@@ -15,10 +15,11 @@ namespace WelcomePage
 {
     public partial class WelcomePage : Form
     {
+        public static string connectionString { get; set; }
         public WelcomePage()
         {
             InitializeComponent();
-            AppData.connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\gtfol\\source\\repos\\BudgetBuddy\\WelcomePage\\Database1.mdf;Integrated Security=True";
+            
         }
 
 
